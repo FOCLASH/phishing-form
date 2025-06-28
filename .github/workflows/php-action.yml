@@ -1,0 +1,22 @@
+name: PHP Script
+
+on:
+  push:
+    paths:
+      - 'verarbeite.php'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.4'
+
+    - name: Run PHP script
+      run: php verarbeite.php
